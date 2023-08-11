@@ -1,0 +1,133 @@
+programa FinalConcurrente
+procesos
+  proceso vaciarBolsa
+  comenzar
+    mientras (HayFlorEnLaBolsa)
+      depositarFlor
+  fin
+  proceso recorridoV
+  variables
+    caAnt:numero
+  comenzar
+    repetir 2
+      derecha
+    repetir 7
+      mientras(HayFlorEnLaEsquina)
+        tomarFlor
+      mover
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+    caAnt:= PosCa
+    Pos(PosAv,20)
+    mientras(HayFlorEnLaBolsa)
+      depositarFlor
+    Pos(PosAv,caAnt)
+  fin
+  proceso recorridoH
+  variables
+    avAnt:numero
+  comenzar
+    repetir 8
+      mientras(HayFlorEnLaEsquina)
+        tomarFlor
+      mover
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+  fin
+  
+areas
+  esquina20: AreaC(20,20,20,20)
+  areaV1: AreaP(19,21,19,29)
+  areaV2: AreaP(21,21,21,29)
+  areaH1: AreaP(9,20,18,20)
+  areaH2: AreaP(22,20,31,20)
+  areaHV1: AreaPC(19,20,19,20)
+  areaHV2: AreaPC(21,20,21,20)
+  
+robots
+  robot vertical1
+  variables
+    ack:boolean
+  comenzar
+    vaciarBolsa
+    Pos(19,28)
+    recorridoV
+    EnviarMensaje(ack, H1)
+  fin
+  robot vertical2
+  variables
+    ack:boolean
+  comenzar
+    vaciarBolsa
+    Pos(21,28)
+    recorridoV
+    EnviarMensaje(ack, H2)
+  fin
+  robot horizontal1
+  variables
+    ack:boolean
+    avAnt:numero
+  comenzar
+    vaciarBolsa
+    Pos(10,20)
+    derecha
+    recorridoH
+    RecibirMensaje(ack, V1)
+    mover
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+    avAnt:= PosAv
+    mientras(HayFlorEnLaBolsa)
+      BloquearEsquina(20,20)
+      Pos(20,20)
+      depositarFlor
+      Pos(avAnt,20)
+      LiberarEsquina(20,20)
+  fin
+  robot horizontal2
+  variables
+    ack:boolean
+    avAnt:numero
+  comenzar
+    vaciarBolsa
+    Pos(30,20)
+    repetir 3
+      derecha
+    recorridoH
+    RecibirMensaje(ack, V2)
+    mover
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+    avAnt:= PosAv
+    mientras(HayFlorEnLaBolsa)
+      BloquearEsquina(20,20)
+      Pos(20,20)
+      depositarFlor
+      Pos(avAnt,20)
+      LiberarEsquina(20,20)
+  fin
+variables
+  V1:vertical1
+  V2:vertical2
+  H1:horizontal1
+  H2:horizontal2
+comenzar
+  AsignarArea(V1,areaV1)
+  AsignarArea(V1,areaHV1)
+  
+  AsignarArea(H1,areaH1)
+  AsignarArea(H1,areaHV1)
+  AsignarArea(H1,esquina20)
+  
+  AsignarArea(V2,areaV2)
+  AsignarArea(V2,areaHV2)
+  
+  AsignarArea(H2,areaH2)
+  AsignarArea(H2,areaHV2)
+  AsignarArea(H2,esquina20)
+  
+  Iniciar(V1,19,29)
+  Iniciar(H1,9,20)
+  Iniciar(V2,21,29)
+  Iniciar(H2,31,20)
+fin

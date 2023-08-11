@@ -1,0 +1,33 @@
+Codigo: -7
+Precio: 2047.00
+
+Codigo: 55
+Precio: 2059.00
+
+Codigo: 72
+Precio: 2084.00
+
+Codigo: 61
+Precio: 2085.00
+
+Codigo: 55
+Precio: 2084.00
+
+Codigo: 43
+Precio: 2062.00
+
+Codigo: 65
+Precio: 2038.00
+
+Codigo: 0
+Precio: 2029.00
+
+Codigo: 90
+Precio: 2005.00
+
+Codigo: 97
+Precio: 2027.00
+
+Codigo: 55
+Precio: 2059.00
+

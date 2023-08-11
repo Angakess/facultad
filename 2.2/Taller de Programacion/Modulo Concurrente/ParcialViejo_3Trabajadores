@@ -1,0 +1,103 @@
+programa
+
+procesos
+  proceso jutnarFlores(ES flores:numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      flores:= flores + 1
+  fin
+  proceso depositarFlores(E av:numero; E ca:numero)
+  comenzar
+    mientras(HayFlorEnLaBolsa)
+      BloquearEsquina(10,10)
+      Pos(10,10)
+      depositarFlor
+      Pos(av,ca)
+      LiberarEsquina(10,10)
+  fin
+  proceso maximos(ES idM;ES fM;E id;E f)
+  comenzar
+    si (fM < f)
+      idM:= id
+      fM:= f
+  fin
+
+areas
+  area1: AreaP(1,1,6,6)
+  area2: AreaP(7,1,12,6)
+  area3: AreaP(13,1,18,6)
+  esquina10: AreaC(10,10,10,10)
+  areaCoord: AreaP(20,1,20,1)
+  
+robots
+  robot trabajadores
+  variables
+    flo:numero
+    ACK:boolean
+  comenzar
+    flo:= 0
+    ACK:= F
+    repetir 4
+      repetir 5
+        juntarFlores(flo)
+        mover
+      derecha
+      EnviarMensaje(ACK,coord)
+      RecibirMensaje(ACK,coord)
+    EnviarMensaje(PosAv,coord)
+    EnviarMensaje(flo,coord)
+    RecibirMensaje(ACK,coord)
+    si(ACK = V)
+      avIni:=PosAv
+      caIni:=PosCa
+      depositarFlores(avIni,caIni)
+  fin
+  robot coordinador
+  variables
+    ACK:boolean
+    id1,id2,id3,idMax:numero
+    flores1,flores2,flores3,floresMax:numero
+  comenzar
+    idMax:= 0
+    floresMax:= -1
+    repetir 4
+      repetir 3
+        RecibirMensaje(ACK,*)
+      EnviarMensaje(ACK,T1)
+      EnviarMensaje(ACK,T2)
+      EnviarMensaje(ACK,T3)
+    RecibirMensaje(id1,T1)
+    RecibirMensaje(flores1,T1)
+    RecibirMensaje(id2,T2)
+    RecibirMensaje(flores2,T2)
+    RecibirMensaje(id3,T3)
+    RecibirMensaje(flores3,T3)
+    maximos(idMax,floresMax,id1,flores1)
+    maximos(idMax,floresMax,id2,flores2)
+    maximos(idMax,floresMax,id3,flores3)
+    si (idMax = id1)
+      Informar("El id del ganador es :",idMax)
+      EnviarMensaje(ACK,T2)
+      EnviarMensaje(ACK,T3)
+    si (idMax = id2)
+      Informar("El id del ganador es :",idMax)
+      EnviarMensaje(ACK,T1)
+      EnviarMensaje(ACK,T3)
+    si (idMax = id3)
+      Informar("El id del ganador es :",idMax)
+      EnviarMensaje(ACK,T2)
+      EnviarMensaje(ACK,T3)
+  fin
+variables
+  T1: trabajadores
+  T2: trabajadores
+  T3: trabajadores
+  Coord: coordinador
+comenzar
+  AsignarArea()
+  AsignarArea()
+  AsignarArea()
+  AsignarArea()
+  
+fin

@@ -1,0 +1,127 @@
+[33mcommit 200144360daf1cd5121be72caa19b92022156c78[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Andres Kessler <andresgabriel.kessler@gmail.com>
+Date:   Fri Apr 14 21:21:00 2023 -0300
+
+    borrado arcivos grandes
+
+[33mcommit 999dce1d8e88ad71d935e75974403f9e32e8ed36[m
+Merge: 46a03aa 7245f5d
+Author: Andres Kessler <andresgabriel.kessler@gmail.com>
+Date:   Fri Apr 14 21:11:41 2023 -0300
+
+    Merge branch 'main' of github.com:Angakess/Facultad
+    git commit -m "what"
+
+[33mcommit 7245f5d993eec4eaecacbbef29e362b8e37fd960[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Andres Kessler <andresgabriel.kessler@gmail.com>
+Date:   Fri Apr 14 19:45:49 2023 -0300
+
+    asdasd
+
+[33mcommit 46a03aa2dca386ea40182a17aacd4137b60f6237[m
+Author: Andres Kessler <andresgabriel.kessler@gmail.com>
+Date:   Fri Apr 14 15:54:37 2023 -0300
+
+    AyED terminado P2, empezado P3
+
+[33mcommit 851b5ed4febb2661f1c0d4e997bc9b9e2a2c23f3[m
+Author: Andres Kessler <andresgabriel.kessler@gmail.com>
+Date:   Thu Apr 13 19:13:31 2023 -0300
+
+    cosas
+
+[33mcommit 955e9c24c0ee67a4d5ec19483b8afa9578371cf6[m
+Author: Andres Kessler <andresgabriel.kessler@gmail.com>
+Date:   Mon Apr 10 12:41:21 2023 -0300
+
+    sdfsdf
+
+[33mcommit 96cbc8c6a02ebd6760f4d6ca1716404666425fa3[m
+Author: Andres Kessler <andresgabriel.kessler@gmail.com>
+Date:   Fri Apr 7 17:16:39 2023 -0300
+
+    ejercicios de sem js
+
+[33mcommit f13a903d6b186358f76a9d4da26ad93b7d0f37f2[m
+Author: Andres Kessler <andresgabriel.kessler@gmail.com>
+Date:   Tue Apr 4 19:10:05 2023 -0300
+
+    nose
+
+[33mcommit 8c9fbb972585896f469021651b633728d2cff963[m
+Author: Andres Kessler <andresgabriel.kessler@gmail.com>
+Date:   Tue Apr 4 14:56:48 2023 -0300
+
+    p2ej3 arreglado, p2ej4 roto
+
+[33mcommit e2a5d04e519a33fceaf772564c7628885579178b[m
+Author: Andres Kessler <andresgabriel.kessler@gmail.com>
+Date:   Mon Apr 3 21:07:35 2023 -0300
+
+    p2ej3 fod
+
+[33mcommit 39d0e9e65527577240861104f0038876f637c994[m
+Author: Andres Kessler <andresgabriel.kessler@gmail.com>
+Date:   Sun Apr 2 18:46:29 2023 -0300
+
+    practica 2 ej 02 AyED
+
+[33mcommit 34ae35e4b825a7975b12df50859d2c25ef69511e[m
+Author: Andres Kessler <andresgabriel.kessler@gmail.com>
+Date:   Sun Apr 2 16:54:18 2023 -0300
+
+    practicas de ayed
+
+[33mcommit 21b77f257db6f64fc1b9f74d71ddedd1a79b9ee7[m
+Author: Andres Kessler <andresgabriel.kessler@gmail.com>
+Date:   Thu Mar 30 18:20:34 2023 -0300
+
+    clases de js agregadas
+
+[33mcommit 079601cbd76d6e47df6c78e8245028ff519e218f[m
+Author: Andres Kessler <andresgabriel.kessler@gmail.com>
+Date:   Thu Mar 30 17:01:20 2023 -0300
+
+    FOD P2EJ1 arreglado
+
+[33mcommit 9d77e45932b562cae379c52a3480e1b4aee96ba9[m
+Author: Andres Kessler <andresgabriel.kessler@gmail.com>
+Date:   Thu Mar 30 14:07:17 2023 -0300
+
+    mas clases de FOD y AyED
+
+[33mcommit 54c49aebcb4fe726747dede6ec67761b25fc69ea[m
+Author: Andres Kessler <andresgabriel.kessler@gmail.com>
+Date:   Wed Mar 29 20:26:39 2023 -0300
+
+    archivos de la semana del 27/03 agregados a FOD y SEM JS
+
+[33mcommit 3030eea074d9154817e7e57495a0553ee4a677e7[m
+Author: Andres Kessler <andresgabriel.kessler@gmail.com>
+Date:   Tue Mar 28 14:20:29 2023 -0300
+
+    no se porque no anda el P2ej1
+
+[33mcommit 7c6137762d6efaee7be87e177b67ed4d38c9c78c[m
+Author: Andres Kessler <andresgabriel.kessler@gmail.com>
+Date:   Tue Mar 28 13:19:32 2023 -0300
+
+    practica 2 de fod
+
+[33mcommit 264f138a2d91ad56b5fd934dfa5b77e1a5529c76[m
+Author: Andres Kessler <andresgabriel.kessler@gmail.com>
+Date:   Tue Mar 28 11:33:52 2023 -0300
+
+    clases de FOD
+
+[33mcommit e6eaf1a9aa93374c240c76162524527af1b05741[m
+Author: Andres Kessler <andresgabriel.kessler@gmail.com>
+Date:   Sat Mar 25 11:31:43 2023 -0300
+
+    anidacion de github y gitlab
+
+[33mcommit 282eed1c624e04fde78d2e1cde810b01caed9c0c[m
+Author: Andres Kessler <andresgabriel.kessler@gmail.com>
+Date:   Fri Mar 24 23:46:46 2023 -0300
+
+    creacion de repo

@@ -1,0 +1,165 @@
+programa P4Ej01
+procesos
+  proceso depositarFlores (E cant:numero)
+  comenzar
+    repetir cant
+      depositarFlor  
+  fin
+  proceso juntarFlores
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+  fin
+  proceso trabajo
+  comenzar
+    depositarFlor
+    mover
+  fin
+areas
+  area1: AreaPC (1,1,1,100)
+  area2: AreaPC (2,1,2,100)
+  area3: AreaPC (3,1,3,100)
+  areaS: AreaP(100,50,100,50)
+ 
+robots
+  robot cliente1
+  variables
+    avIni, caIni:numero
+    cantF:numero
+    ack:boolean
+  comenzar
+    mientras (PosCa <> 100)
+      avIni:= PosAv
+      caIni:= PosCa
+      Random(cantF,1,4)
+      EnviarMensaje(1,S1)
+      EnviarMensaje(cantF, S1)
+      EnviarMensaje(PosAv,S1)
+      EnviarMensaje(PosCa+1,S1)
+      
+      RecibirMensaje(ack, S1)
+      mover
+      juntarFlores
+      Pos(avIni, caIni)
+      mientras((HayFlorEnLaBolsa) & (PosCa <> 100))
+        trabajo
+    EnviarMensaje(1,S1)
+    EnviarMensaje(0,S1)
+  fin
+    
+  robot cliente2
+  variables
+    avIni, caIni:numero
+    cantF:numero
+    ack:boolean
+  comenzar
+    mientras (PosCa <> 100)
+      avIni:= PosAv
+      caIni:= PosCa
+      Random(cantF,1,4)
+      EnviarMensaje(2,S1)
+      EnviarMensaje(cantF, S1)
+      EnviarMensaje(PosAv,S1)
+      EnviarMensaje(PosCa+1,S1)
+      
+      RecibirMensaje(ack, S1)
+      mover
+      juntarFlores
+      Pos(avIni, caIni)
+      mientras((HayFlorEnLaBolsa) & (PosCa <> 100))
+        trabajo
+    EnviarMensaje(2,S1)
+    EnviarMensaje(0,S1)
+  fin
+  
+  robot cliente3
+  variables
+    avIni, caIni:numero
+    cantF:numero
+    ack:boolean
+  comenzar
+    mientras (PosCa <> 100)
+      avIni:= PosAv
+      caIni:= PosCa
+      Random(cantF,1,4)
+      EnviarMensaje(3,S1)
+      EnviarMensaje(cantF, S1)
+      EnviarMensaje(PosAv,S1)
+      EnviarMensaje(PosCa+1,S1)
+      
+      RecibirMensaje(ack, S1)
+      mover
+      juntarFlores
+      Pos(avIni, caIni)
+      mientras((HayFlorEnLaBolsa) & (PosCa <> 100))
+        trabajo
+    EnviarMensaje(3,S1)
+    EnviarMensaje(0,S1)
+  fin
+  
+  robot server
+  variables
+    avX, caX:numero
+    flores, id:numero
+    cantTerminado:numero
+  comenzar
+    cantTerminado:= 0
+    mientras (cantTerminado < 3)
+      RecibirMensaje(id,*)
+      
+      si (id = 1)
+        RecibirMensaje(flores, C1)
+        si (flores <> 0)
+          RecibirMensaje(avX, C1)
+          RecibirMensaje(caX, C1)
+          Pos(avX, caX)
+          depositarFlores(flores)
+          Pos(100, 100)
+          EnviarMensaje(V,C1)
+        sino
+          cantTerminado:= cantTerminado + 1
+      
+      si (id = 2)
+        RecibirMensaje(flores,C2)
+        si(flores <> 0)
+          RecibirMensaje(avX, C2)
+          RecibirMensaje(caX, C2)
+          Pos(avX, caX)
+          depositarFlores(flores)
+          Pos(avIni, caIni)
+          EnviarMensaje(V, C2)
+        sino
+          cantTerminado:= cantTerminado + 1
+          
+      si (id = 3)
+        RecibirMensaje(flores, C3)
+        si (flores <> 0)
+          RecibirMensaje(avX, C3)
+          RecibirMensaje(caX, C3)
+          Pos(avX, caX)
+          depositarFlores(flores)
+          Pos(avIni, caIni)
+          EnviarMensaje(V,C2)
+        sino
+          cantTerminado:= cantTerminado + 1
+  fin
+variables
+  S1: server
+  C1: cliente1
+  C2: cliente2
+  C3: cliente3
+comenzar
+  AsignarArea(S1,areaS)
+  AsignarArea(S1,area1)
+  AsignarArea(S1,area2)
+  AsignarArea(S1,area3)
+  
+  AsignarArea(C1,area1)
+  AsignarArea(C2,area2)
+  AsignarArea(C3,area3)
+  
+  Iniciar(S1,100,50)
+  Iniciar(C1, 1,1)
+  Iniciar(C2, 2,1)
+  Iniciar(C3, 3,1)
+fin

@@ -1,0 +1,24 @@
+111 10000.00   Samsung
+0 10   abc
+S21
+222 250000.00   Apple
+5 50   sdf
+Iphone 14
+333 140000.00   Huawei
+10 100   abc
+blabla
+444 135000.00   Motorola
+200 20   zxc
+Moto G6
+555 50000.00   Sony
+10 1   zxc
+asdfghj
+666 120000.00 Motorola
+0 10 qwe
+Moto G25
+777 340000.00 Samsung
+15 5 rtyu
+S23 Ultra
+888 200000.00 Apple
+2 30 sdf
+Iphone 13

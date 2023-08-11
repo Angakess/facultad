@@ -1,0 +1,84 @@
+programa P4Ej02
+
+procesos
+  proceso juntarPapeles (ES papeles:numero; E veces:numero)
+  comenzar
+    mientras((HayPapelEnLaEsquina)&(papeles < veces))
+      tomarPapel
+      papeles:= papeles + 1
+  fin
+  proceso depositarPapeles
+  comenzar
+    mientras (HayPapelEnLaBolsa)
+      depositarPapel
+  fin
+  
+areas
+  esquina50: AreaC (50,50,50,50)
+  area1P: AreaP (5,1,5,100)
+  area2P: AreaP (10,1,10,100)
+  area1C: AreaP (11,1,11,1)
+  area2C: AreaP (12,1,12,1)
+
+robots
+  robot productores
+  variables
+    avIni,caIni:numero
+    pap:numero
+  comenzar
+    pap:=0
+    mientras(PosCa <> 100)
+      avIni:= PosAv
+      caIni:= PosCa
+      juntarPapeles(pap,5)
+      si (pap = 5)
+        BloquearEsquina(50,50)
+        Pos(50,50)
+        depositarPapeles
+        Pos(avIni,caIni)
+        LiberarEsquina(50,50)
+        pap:=0
+      sino
+        mover
+  fin
+  robot consumidores
+  variables
+    avIni,caIni:numero
+    x,n,cant:numero
+  comenzar
+    avIni:= PosAv
+    caIni:= PosCa
+    x:= 0
+    mientras(x < 8)
+      cant:= 0
+      Random(n,2,5)
+      BloquearEsquina(50,50)
+      Pos(50,50)
+      juntarPapeles(cant,n)
+      si(cant < n)
+        depositarPapeles
+        x:= x + 1
+      sino
+        x:= 0
+      Pos(avIni,caIni)
+      LiberarEsquina(50,50)
+      depositarPapeles
+  fin
+variables
+  P1,P2: productores
+  C1,C2: consumidores
+comenzar
+  AsignarArea(P1,esquina50)
+  AsignarArea(P2,esquina50)
+  AsignarArea(C1,esquina50)
+  AsignarArea(C2,esquina50)
+  AsignarArea(P1,area1P)
+  AsignarArea(P2,area2P)
+  AsignarArea(C1,area1C)
+  AsignarArea(C2,area2C)
+  
+  Iniciar(P1,5,1)
+  Iniciar(P2,10,1)
+  Iniciar(C1,11,1)
+  Iniciar(C2,12,1)
+fin

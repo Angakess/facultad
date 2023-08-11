@@ -1,0 +1,12 @@
+Codigo: 111
+Nombre: queso
+Descripcion: asdf
+Stock: 5
+Precio: 274.00
+----------------------------------------
+Codigo: 222
+Nombre: leche
+Descripcion: qwer
+Stock: 5
+Precio: 296.00
+----------------------------------------

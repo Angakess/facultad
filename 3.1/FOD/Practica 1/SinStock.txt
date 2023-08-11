@@ -1,0 +1,6 @@
+111 10000.00   Samsung
+0 10   abc
+S21
+666 120000.00 Motorola
+0 10 qwe
+Moto G25

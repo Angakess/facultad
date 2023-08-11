@@ -1,0 +1,18 @@
+Codigo: 111
+Apellido: Kessler
+Nombre: Andres
+Cursadas: 5
+Finales: 2
+----------------------------------------
+Codigo: 222
+Apellido: Mercuri
+Nombre: Luciano
+Cursadas: 6
+Finales: 1
+----------------------------------------
+Codigo: 333
+Apellido: Urrels
+Nombre: Luis
+Cursadas: 5
+Finales: 7
+----------------------------------------

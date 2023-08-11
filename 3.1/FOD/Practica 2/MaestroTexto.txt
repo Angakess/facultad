@@ -1,0 +1,80 @@
+Numero de partida: 1
+Nombre: Pedro
+Apellido: pep
+Direccion: asdf
+Matricula del medico: 222
+Nombre de la madre: asdasd
+Apellido de la madre: dsadas
+DNI de la madre: 123
+Nombre del padre: asdf
+Apellido del padre: qwer
+DNI del padre: 213
+Medico de deceso: 1
+Fecha de deceso: trtrt
+Hora de deceso: trt
+Lugar de deceso: ttrr
+---------------------------------------------
+Numero de partida: 2
+Nombre: Juanillo
+Apellido: chulo
+Direccion: zxcmn
+Matricula del medico: 323
+Nombre de la madre: poiu
+Apellido de la madre: lkjlk
+DNI de la madre: 789
+Nombre del padre: adsad
+Apellido del padre: fgjgj
+DNI del padre: 345
+Medico de deceso: 2
+Fecha de deceso: sdsdsd
+Hora de deceso: sds
+Lugar de deceso: ssdd
+---------------------------------------------
+Numero de partida: 3
+Nombre: Yenifer
+Apellido: yak
+Direccion: rtyu
+Matricula del medico: 454
+Nombre de la madre: mnbv
+Apellido de la madre: mcdks
+DNI de la madre: 8
+Nombre del padre: scjxbck
+Apellido del padre: asasn
+DNI del padre: 234
+Medico de deceso: 0
+Fecha de deceso: N/A
+Hora de deceso: N/A
+Lugar de deceso: N/A
+---------------------------------------------
+Numero de partida: 4
+Nombre: OmaR
+Apellido: URRELS
+Direccion: poipo
+Matricula del medico: 121
+Nombre de la madre: oiuo
+Apellido de la madre: oiuoi
+DNI de la madre: 7
+Nombre del padre: asdfff
+Apellido del padre: aaaaa
+DNI del padre: 6
+Medico de deceso: 0
+Fecha de deceso: N/A
+Hora de deceso: N/A
+Lugar de deceso: N/A
+---------------------------------------------
+Numero de partida: 5
+Nombre: Agustin
+Apellido: Matematicas
+Direccion: zxcnm
+Matricula del medico: 676
+Nombre de la madre: qweqwe
+Apellido de la madre: qwqwqw
+DNI de la madre: 3
+Nombre del padre: asasasa
+Apellido del padre: asasssa
+DNI del padre: 23
+Medico de deceso: 3
+Fecha de deceso: xcxcxc
+Hora de deceso: xcx
+Lugar de deceso: xxxccc
+---------------------------------------------

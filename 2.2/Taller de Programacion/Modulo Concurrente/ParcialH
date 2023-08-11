@@ -1,0 +1,65 @@
+programa ParcialH
+
+procesos
+  proceso juntarPapeles(ES papeles:numero)
+  comenzar
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+      papeles:= paples + 1
+  fin
+  proceso juntarFlores(ES flores:numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      flores:= flores + 1
+  fin
+  proceso hacerRecorridoV(ES pap:numero; ES flo:numero)
+  comenzar
+    repetir 2
+      repetir 8
+        juntarPapeles(pap)
+        juntarFlores(flo)
+        mover
+      derecha
+      repetir 3
+        juntarPapeles(pap)
+        juntarFlores(flo)
+        mover
+      derecha
+  fin
+   proceso hacerRecorridoV(ES pap:numero; ES flo:numero)
+  comenzar
+    repetir 2
+      repetir 8
+        juntarPapeles(pap)
+        juntarFlores(flo)
+        mover
+      derecha
+      repetir 3
+        juntarPapeles(pap)
+        juntarFlores(flo)
+        mover
+      derecha
+  fin
+
+areas
+  area1: AreaPC(1,2,9,4)
+  area2: AreaPC(1,6,9,8)
+  area3: AreaPC(2,1,4,9)
+  area4: AreaPC(6,1,8,9)
+  areaJefe: AreaP(20,15,20,15)
+robots
+  robot juntadores
+  variables
+    p,f:numero
+  comenzar
+    p:= 0
+    f:= 0
+    hacerRecorrido(p,f)
+    
+  fin
+variables
+
+comenzar
+
+fin
