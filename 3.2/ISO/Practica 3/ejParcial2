@@ -1,0 +1,28 @@
+#!/bin/bash
+#Crear un script que verifique cada 10 segundos si un usuario esta logueado en el sistema
+#(el nombre del usuario sera pasado por parametro). Cuando el usuario finalmente se loguee
+#el programa debera mostrar el mensaje "Usuario XXX logueado en el sistema" y salir
+
+
+if [ $# -ne 1 ]; then
+ echo ingresar usuario
+ exit 1
+fi
+
+existe=$( cat /etc/passwd | cut -d : -f 1 | grep -w $1 | wc -l)
+if [ $existe -eq 0 ]; then
+ echo no existe el usuario
+ exit 2
+fi
+
+while true; do
+ logueado=$( users | grep -wc $1 ) 
+ if [ $logueado -eq 1 ]; then
+  echo "Usuario logueado"
+  exit
+ fi
+
+
+
+ sleep 10
+done

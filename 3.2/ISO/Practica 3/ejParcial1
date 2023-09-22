@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if [ $# -ne 3 ]; then
+ echo "se requieren 3 parametros"
+ exit 1
+fi
+
+if [ ! -d $1 ]; then
+ echo "no es un directorio"
+ exit 2
+fi
+
+directorio=$1
+case $2 in
+"-a")
+ for i in 'ls $directorio; do
+  mv $directorio/$i $directorio/$i$3
+ done
+;;
+"-b")
+;;
+*)
+ echo "el segundo parametro no es valido"
+exit 3
+;;
+esac
