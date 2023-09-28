@@ -1,0 +1,66 @@
+#!/bin/bash
+
+if [ $# -ne 0 ]
+then
+  echo "Numero de parametros incorrectos"
+  exit 1
+fi
+
+function push
+{
+  echo "Ingrese el elemento a agregar"
+  read elemento 
+  long=${#pila[@]} 
+  pila[$long]=$elemento
+}
+
+function pop
+{
+  long=${#pila[@]}
+  if [ $long -gt 0 ]
+  then
+    unset pila[$long-1]
+  else
+    echo "No se puede hacer un pop, el arreglo esta vacio"
+  fi
+}
+
+function length
+{
+  echo ${#pila[@]}
+}
+
+function print
+{
+  echo ${pila[@]}
+}
+
+pila=()
+
+
+select accion in Push Pop Length Print Exit
+do
+case $accion in
+"Push")
+  push
+;;
+"Pop")
+  pop
+;;
+"Length")
+  length
+;;
+"Print")
+  print
+;;
+"Exit")
+  echo "Adios"
+  exit 0
+;;
+*)
+  echo "opcion desconocida"
+  exit 3
+;;
+esac
+done
+

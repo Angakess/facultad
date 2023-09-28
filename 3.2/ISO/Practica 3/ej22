@@ -1,0 +1,23 @@
+#/bin/bash
+
+if [ $# -ne 0 ]
+then
+  echo "No se permiten parametros"
+  exit 1
+fi
+
+num=(10 3 5 7 9 3 5 4)
+
+function productoria
+{
+  total=1
+  for element in ${num[@]}
+  do
+    total=$(expr $total \* $element)
+  done
+  echo $total
+}
+
+echo "Todos los elemntos: ${num[@]}"
+echo "El producto: $(productoria)"
+

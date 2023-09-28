@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]
+then
+  echo "Se debe ingresar un parametro"
+  exit 1
+fi
+
+find ./*.$1 -type f -exec stat -c '%U' {} \;| sort | uniq -c > reporte.txt
+
+exit 0
+

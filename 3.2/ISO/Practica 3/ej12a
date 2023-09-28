@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo "Ingrese dos numeros"
+read primero
+read segundo
+
+echo "multiplicacion: $(expr $primero \* $segundo)"
+echo "suma: $(expr $primero + $segundo)"
+echo "resta: $(expr $primero - $segundo)"
+if [ $primero -gt $segundo ]
+then
+mayor=$primero
+else
+mayor=$segundo
+fi
+echo "mayor: $mayor"
+

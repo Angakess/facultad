@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]
+then
+echo "Debe ingresar un parametro"
+exit 1
+fi
+
+if [ -e $1 ]
+then
+if [ -d $1 ]
+then
+echo "El archivo ingresado es un directorio"
+else
+echo "El archivo ingresado NO es un directorio"
+fi
+else
+mkdir $1
+fi
+exit 0
+

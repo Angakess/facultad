@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ $# -ne 0 ]
+then
+  echo "No se debe ingresar parametros"
+  exit 1
+fi
+
+for archivo in *
+do
+  if [ -f $archivo ]
+  then
+    echo "$archivo" | tr -d 'aAáÁáÁ' | tr '[:lower:][:upper:]' '[:upper:][:lower:]' 
+  fi
+done
+exit 0
+

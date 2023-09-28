@@ -1,0 +1,44 @@
+#!/bin/bash
+
+
+if [ $# -ge 3 ]
+then
+  echo "No se permiten tantos parametros"
+  exit 1
+fi
+
+users=$( cat /etc/group | grep -w asdf | cut -d: -f 4 | tr ',' '\n' )
+#IFS=',' read -ra users <<< $users
+
+
+long=${#users[@]}
+
+case $1 in
+"-b")
+  if [ -z $2 ]
+  then
+    echo "Falta un parametro n"
+    exit 3
+  fi
+  if [ $2 -lt 0 ] || [ $2 -ge $long ] 
+  then
+    echo "Numero invalido"
+    exit 4
+  fi
+  echo ${users[$2]}
+  exit 0
+;;
+"-l")
+  echo ${#users[*]}
+  exit 0
+;;
+"-i")
+  echo ${users[*]}
+  exit 0
+;;
+*)
+  echo "Opcion desconocida"
+  exit 2
+;;
+esac
+

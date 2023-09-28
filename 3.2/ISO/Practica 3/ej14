@@ -1,0 +1,35 @@
+#!/bin/bash
+
+if [ $# -ne 3 ]
+then
+echo "Debe ingresar 3 parametros"
+exit 1
+fi
+
+if [ ! -d $1 ]
+then
+echo "El primer parametro debe ser un directorio"
+exit 2
+fi
+
+
+cd $1
+for archivo in *
+do
+  if [ -f $archivo ]
+  then
+    case $2 in
+    "-a")
+    mv "$archivo" "$archivo$3"
+    ;;
+    "-b")
+    mv "$archivo" "$3$archivo"
+    ;;
+    *)
+    echo "El segundo parametro no se reconoce"
+    exit 3
+    ;;
+    esac
+  fi
+done
+

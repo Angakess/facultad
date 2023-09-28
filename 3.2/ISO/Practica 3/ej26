@@ -1,0 +1,33 @@
+#!/bin/bash
+
+if [ $# -lt 1 ]
+then
+  echo "Faltan parametros"
+  exit 1
+fi
+
+count=0
+i=0
+for file in $*
+do
+  i=$(expr $i + 1)
+
+  if [ ! -e "./$file" ]
+  then
+    count=$(expr $count + 1)
+    continue
+  fi
+  if [ $(expr $i % 2) -ne 0 ]
+  then
+    if [ -d "./$file" ]
+    then
+      echo "El parametro $file es un directorio"
+    elif [ -f "./$file" ]
+    then
+      echo "El parametro $file es un archivo"
+    fi
+  fi
+done
+
+echo "Se ingresaron $count inexistentes"
+
