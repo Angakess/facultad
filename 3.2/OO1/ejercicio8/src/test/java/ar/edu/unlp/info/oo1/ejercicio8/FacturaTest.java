@@ -1,4 +1,4 @@
-package ar.edu.unlp.info.oo1.ej8_distribuidora;
+package ar.edu.unlp.info.oo1.ejercicio8;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
