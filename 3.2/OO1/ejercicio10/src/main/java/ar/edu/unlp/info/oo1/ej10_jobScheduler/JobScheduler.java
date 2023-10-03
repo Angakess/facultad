@@ -34,6 +34,13 @@ public class JobScheduler {
         this.strategy = aStrategy;
     }
 
+    
+    
+    
+    //HACER 4 CLASES QUE HEREDEN DE ESTA E IMPLEMENTAR SU PROPIO NEXT()
+    //EJ: LIFOJobScheduler, FIFOJobScheduler, etc
+    
+    
     public JobDescription next() {
         JobDescription nextJob = null;
 
