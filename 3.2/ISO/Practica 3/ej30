@@ -1,0 +1,27 @@
+#!/bin/bash
+
+
+if [ ! -e "$HOME/bin/" ]
+then
+  mkdir "$HOME/bin/"
+fi
+
+count=0
+for file in *
+do
+  if [ -x $file ]
+  then
+    echo "Moviendo el archivo $file"
+    count=$(expr $count + 1)
+    #mv $file $HOME/bin/$file
+    #para probar mv -> cp
+    cp $file $HOME/bin/$file
+  fi
+done
+
+if [ $count -gt 0 ]
+then
+  echo "Se movieron $count archivos"
+else
+  echo "No se movio ningun archivo"
+fi

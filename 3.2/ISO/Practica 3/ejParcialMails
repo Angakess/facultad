@@ -1,0 +1,15 @@
+#!/bin/bash
+
+users=($(cat /etc/passwd | cut -d: -f1))
+
+for user in ${users[@]}
+do
+  directorio="/home/$user/mailDir"
+  shell=$(getent passwd "$user" | cut -d: -f7)
+  if [ -e $directorio ] && [ -d $directorio ] && [ $shell = "/bin/bash" ]
+  then
+    echo "encontrado"
+    echo $user >> /var/listado.txt
+  fi
+done
+

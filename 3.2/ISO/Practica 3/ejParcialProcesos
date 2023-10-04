@@ -1,0 +1,64 @@
+#!/bin/bash
+
+if [ $# -lt 1 ]
+then
+  echo "Se debe ingresar al menos un parametro"
+  exit 1
+fi
+
+usuarios=($*)
+
+function existe
+{
+  echo $(cat /etc/passwd | grep -w "$1" | wc -l)
+}
+
+function esta_logueado
+{  
+  if [ $(existe $1) -eq 0 ]
+  then
+    echo "El usuario $1 no existe"
+    echo "1"
+    return 1
+  fi
+
+  logged=($(users))
+  for l in ${logged[@]}
+  do
+    if [ "$1" = "$l" ]
+    then
+      echo "El usuario $1 esta logueado"
+      echo "0" # o echo true ??
+      return 0
+    fi
+  done
+  echo "El usuario $1 no esta logueado"
+  echo "2" # o echo false ??
+}
+
+function cant_procesos
+{
+  if [ $(existe $1) -eq 0 ]
+  then
+    echo "El usuario $1 no existe"
+    echo "1"
+  return 1
+  fi
+
+  pcount=$(pgrep -u $1 | wc -l)
+  echo "$pcount"
+  return 0
+}
+
+function uso_de_procesos
+{
+  if [ $(existe $1) -eq 0 ]
+  then
+    echo "El usuario no existe"
+    return 1
+  fi
+
+
+}
+
+esta_logueado $*

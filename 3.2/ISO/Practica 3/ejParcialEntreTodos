@@ -1,0 +1,31 @@
+#!/bin/bash
+
+#verificar cada 3 min si un archivo existe en /var/log/any-service/error, si tiene "FATALERROR"
+#y hacer mas cosas
+
+if [ $# -ne 1 ]
+then
+  exit 1
+fi
+
+while true
+do
+  if [ -f /var/log/any-service/error ]
+  then
+    break
+  fi
+  sleep 3m
+done
+
+cant=$(grep "FE" /var/log/any-service/error | wc -l) # o grep -c ...
+
+if [ -d $1 ]
+then
+  tar -cvzf $1/res.tar.gz /var/log/any-service/error
+else
+  exit 2
+fi
+
+echo $cant
+exit 0
+

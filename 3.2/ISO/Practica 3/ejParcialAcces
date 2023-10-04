@@ -1,0 +1,46 @@
+#!/bin/bash
+#arreglo de un archivo con nombre *access*, hacer un menu con cant, list, delete (num, l o f), fin
+
+arreglo=($(ls /var/log/ | grep access)) # o (ls /var/log/*access*), o find(muy dificil)
+
+function cantidad
+{
+  echo ${#arreglo[@]}
+}
+
+function listar
+{
+  echo ${arreglo[@]}
+}
+
+function borrar
+{
+  if [ ${#arreglo[@]} -lt $1 ] && [ $1 -lt ${#arreglo[@]} ]
+  then
+     return 1
+  fi
+
+  if [ "$2" = "l" ]
+  then
+    unset arreglo[$1]
+  elif [ "$2" = "f" ]
+    rm "/var/log/${arreglo[$1]}"
+    unset arreglo[$1]
+  else
+    return 3
+}
+
+function salir
+{
+  exit 0
+}
+
+select opcion in cantidad listar borrar salir
+do
+case $opcion in
+"cant")
+  ...
+  break #por las dudas
+esac
+done
+

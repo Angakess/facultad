@@ -1,0 +1,77 @@
+#!/bin/bash
+
+files=(./*.doc)
+
+function verArchivos
+{
+  echo "Ingrese el nombre del archivo"
+  read fname
+  for file in $files
+  do
+    if [ "$file" = "./$fname" ]
+    then
+      echo "Se encontro el archivo"
+      cat "./$fname"
+      return 0
+    fi
+  done
+  echo "No se encontro el archivo"
+  return 5
+}
+
+function cantidadArchivos
+{
+  echo "Hay ${#files[@]} archivos"
+}
+
+function borrarArchivo
+{
+  echo "Ingese el nombre del archivo a borrar"
+  read fname
+  echo "Quiere borrarlo logicamente? y/n "
+  read yn
+  i=0
+  for ((i=0; i < ${#files[@]}; i++))
+  do
+    if [ "${files[$i]}" = "./$fname" ]
+    then
+      case $yn in
+      "y")
+        unset files[$i]
+        return 0
+      ;;
+      "n")
+        rm "${files[$i]}"
+        unset files[$i] 
+        return 0
+      ;;
+      *)
+        echo "opcion invalida"
+        return 3
+      ;;
+      esac
+    fi
+  done
+  echo "Archivo no encontrado"
+  return 10
+}
+
+select option in verArchivos cantidadArchivos borrarArchivo
+do
+  case $option in
+  "verArchivos")
+     verArchivos
+  ;;
+  "cantidadArchivos")
+     cantidadArchivos
+  ;;
+  "borrarArchivo")
+     borrarArchivo
+  ;;
+  *)
+    echo "opcion invalida"
+    exit 69
+  ;;
+  esac
+done
+

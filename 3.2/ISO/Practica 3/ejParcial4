@@ -1,0 +1,22 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]
+then
+  echo "Se debe ingresar un parametro"
+  exit 1
+fi
+
+while true
+do
+  users=($(users))
+  for user in ${users[@]}
+  do
+    if [ "$1" = "$user" ]
+    then
+      echo "El usuario $1 es usuario del sistema"
+      echo "$1 $(date)" >> "/var/log/usuarios.log"
+      exit 0
+    fi
+  done
+  sleep 5
+done

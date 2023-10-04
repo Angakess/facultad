@@ -1,0 +1,38 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]
+then
+  echo "Faltan parametros"
+  exit 1
+fi
+
+if [ ! -e $1 ]
+then
+  echo "El parametro ingresado no existe"
+  exit 4
+fi
+
+if [ ! -d $1 ]
+then
+  echo "El parametro ingresado no es un directorio"
+  exit 2
+fi
+
+cd $1  #hacer un if [$?] para avisar si necesita hacer sudo?
+
+count=0
+
+for file in *
+do
+  if [ ! -d $file ]
+  then
+    permisos=$(ls -l $file)
+    permisos=${permisos[@]:1:3}
+    if [ ${permisos[@]} = "rw-" ] || [ ${permisos[@]} = "rwx" ]
+    then
+      count=$(expr $count + 1)
+    fi
+  fi
+done
+
+echo "Hay $count con permisos de escritura y lectura"

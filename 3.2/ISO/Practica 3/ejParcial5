@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [ $# -ne 0 ]
+then
+  echo "No debe ingresar parametros"
+  exit 2
+fi
+
+users=($(cat /etc/passwd | cut -d: -f 1))
+
+for user in ${users[@]}
+do
+  found=$(ls "/home/$user/" | grep -w "detect" | wc -l)
+  if [ found -eq 1 ]
+  then
+    echo "Se encontro un archivo llamado detect"
+    exit 0
+  fi
+done
+
+echo "No se encontro el archivo detect"
+exit 1
+
