@@ -1,0 +1,11 @@
+cdesi
+academic google
+
+parcial - hacer un BNF o EBNF (preguntar hasta donde definir la gramatica, usualmente hasta <sentencia>). 
+
+Parte SINTAXIX - Tener bien los conjuntos. Si hay recursion por izquierda y por derecha hay ambiguedad seguro. Un arbol de EBNF quedaria lineal, para eso estan los diagramas de Conway. Si piden BNF piden arbol, si piden EBNF piden Conway.
+
+Parte SEMANTICA - P3 Y 4. Piden tablas con las variables y los atributos. Ojo con R-valor, al inicializar una variable el R-valor depende del lenguaje, aprender como lo hace cada lenguaje. Para la catedra solo se consideran estaticas las variables de C. Los punteros son variables automaticas, y el contenido es dinamico. ADA tiene variables semi-dinamicas
+
+Si sigo la cadena estatica tiene un valor x pero si sigo a la cadena dinamica puedo llegar a un valor y
+
